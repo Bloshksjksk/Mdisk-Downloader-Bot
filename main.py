@@ -469,27 +469,6 @@ def startdown(call):
     app.delete_messages(message.chat.id,message_ids=[msg.id])
 
 
-# mdisk command
-@app.on_message(filters.command(["mdisk"]))
-def mdiskdown(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
-    if not checkuser(message):
-        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
-        return
-
-    if not ismemberpresent(message.from_user.id):
-        app.send_message(message.chat.id, '__You are not a member of our Chat\nJoin and Retry__',reply_to_message_id=message.id,
-        reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("Join", url=LINK)]]))
-        return
-
-    try: link = message.reply_to_message.text
-    except:
-        try: link = message.text.split("mdisk ")[1]
-        except:
-            app.send_message(message.chat.id, '__Invalid Format, use like this\n/mdisk https://mdisk.me/xxxxx\nor just send a link without command__',reply_to_message_id=message.id)
-            return
-
-    if "https://mdisk.me/" in link: handlereq(message,link)
-    else: app.send_message(message.chat.id, '__Send only MDisk Link with command followed by the link__',reply_to_message_id=message.id)
 
 
 # thumb command
