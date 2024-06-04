@@ -599,12 +599,7 @@ def mdisktext(client: pyrogram.client.Client, message: pyrogram.types.messages_a
         handlereanme(message,id)
         return
 
-    if "https://mdisk.me/" in message.text:
-        links = message.text.split("\n")
-        handlereq(message,links[0])
-    else:
-        app.send_message(message.chat.id, '__Send only MDisk Link__',reply_to_message_id=message.id)
-
+    
 
 # polling
 app.run()
