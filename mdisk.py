@@ -204,4 +204,4 @@ def getinfo(link):
     URL = f'https://diskuploader.entertainvideo.com/v1/file/cdnurl?param={link.split("/")[-1]}'
     TURL = f'https://d.terabox.com/file/cdnurl?param={link.split("/")[-1]}'
     try: return requests.get(url=URL, headers=header).json()
-    except: requests.get(url=TURL, headers=header).json()
+    except: return requests.get(url=TURL, headers=header).json()
