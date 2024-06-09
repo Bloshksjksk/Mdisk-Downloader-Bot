@@ -61,7 +61,7 @@ header = {
         'Accept': '*/*',
         'Accept-Language': 'en-US,en;q=0.5',
         'Accept-Encoding': 'gzip, deflate, br',
-        'Referer': 'https://freeterabox.com/',
+        'Referer': 'https://teraboxvideodownloader.nepcoderdevs.workers.dev/',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36'
     	 }
 
@@ -201,7 +201,7 @@ def downaudio(input_audio,ele,resp):
 
 # getting info
 def getinfo(link):
-    URL = f'https://diskuploader.entertainvideo.com/v1/file/cdnurl?param={link.split("/")[-1]}'
+    URL = f'https://d8.freeterabox.com/file/cdnurl?param={link.split("/")[-1]}'
     TURL = f'https://d.terabox.com/file/cdnurl?param={link.split("/")[-1]}'
     try: return requests.get(url=URL, headers=header).json()
     except: return requests.get(url=TURL, headers=header).json()
